@@ -8,12 +8,15 @@
 #ifndef INC_TRAFFIC_LIGHT_H_
 #define INC_TRAFFIC_LIGHT_H_
 
+#define PREIOD_SCAN_7SEG_LED		80
+#define PREIOD_UPDATE_TIME_BUFFER	500
+
 #include "main.h"
 #include "global.h"
-
+#include "7seg.h"
 
 typedef enum {
-		RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED, RED_GREENBLINK, GREENBLINK_RED
+		START, RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED, RED_GREENBLINK, GREENBLINK_RED
 }traffic_state;
 
 extern traffic_state trafState;
@@ -29,5 +32,5 @@ void RedToGreen2();
 void GreenToYellow2();
 
 void clearAllLed();
-
+void traffic_light_run(int, int, int);
 #endif /* INC_TRAFFIC_LIGHT_H_ */

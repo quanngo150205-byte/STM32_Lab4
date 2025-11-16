@@ -10,6 +10,13 @@
 int currentEN = 0;
 int timer_buffer[NUM_OF_7SEG_LED] = {0};
 
+void clear7Seg(){
+	HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
+	displayDigit1(10);
+	displayDigit2(10);
+}
+
 void display7SegLed(){
 	if (currentEN == 0){
 		displayDigit1(timer_buffer[0]);
@@ -36,12 +43,6 @@ void updateTimerBuffer(int counter1, int counter2){
 	timer_buffer[3] = sec2 % 10;
 }
 
-void clear7Seg(){
-	HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
-	displayDigit1(10);
-	displayDigit2(10);
-}
 
 //ham hien led 7 doan
 void displayDigit1 (int num) {

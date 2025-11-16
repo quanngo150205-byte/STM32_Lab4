@@ -1,0 +1,5 @@
+7seg.c:13:6:clear7Seg	8	static
+7seg.c:20:6:display7SegLed	8	static
+7seg.c:37:6:updateTimerBuffer	24	static
+7seg.c:48:6:displayDigit1	16	static
+7seg.c:152:6:displayDigit2	16	static

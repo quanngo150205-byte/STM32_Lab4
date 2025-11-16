@@ -17,5 +17,9 @@
 #include "button.h"
 
 extern int status;
+extern int nextMenuState;
+extern int flagMenuChange;
+
+void doInit();
 
 #endif /* INC_GLOBAL_H_ */

@@ -1,0 +1,4 @@
+fsm_menu.c:11:13:doEntry	16	static
+fsm_menu.c:27:13:doAction	16	static
+fsm_menu.c:42:6:fsm_menu_run	8	static
+fsm_menu.c:61:6:buttonScan	8	static
