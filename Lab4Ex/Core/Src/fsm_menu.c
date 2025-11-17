@@ -15,12 +15,19 @@ static void doEntry(int state) {
             clear7Seg();
             break;
         case AUTO:
+        	clear7Seg();
+        	clearAllLed();
         	trafState = START;
             break;
         case MANUAL:
+        	clear7Seg();
+        	clearAllLed();
+        	man_state = MAN_RED;
         	trafState = START;
             break;
         case CONFIG:
+        	clear7Seg();
+        	clearAllLed();
         	trafState = START;
             break;
         default: break;
@@ -35,6 +42,7 @@ static void doAction(int state) {
         	fsm_automatic_run();
             break;
         case MANUAL:
+        	fsm_manual_run();
             break;
         case CONFIG:
             break;
@@ -44,6 +52,11 @@ static void doAction(int state) {
 
 void fsm_menu_run() {
     static int previousState = 0;
+
+    if (isTimerExpired(TIMER_FOR_LED_PA5)){
+    	LED_PA5_toggle();
+    	setTimer(TIMER_FOR_LED_PA5, LED_PA5_CYCLE);
+    }
 
     // Entry logic
     if (previousState != status) {
@@ -61,22 +74,3 @@ void fsm_menu_run() {
     }
 }
 
-void buttonScan() {
-    if (isButtonPressed(0)) {
-        flagMenuChange = 1;
-        switch (status) {
-            case INIT:
-                nextMenuState = AUTO;
-                break;
-            case AUTO:
-                nextMenuState = MANUAL;
-                break;
-            case MANUAL:
-                nextMenuState = CONFIG;
-                break;
-            case CONFIG:
-                nextMenuState = INIT;
-                break;
-        }
-    }
-}

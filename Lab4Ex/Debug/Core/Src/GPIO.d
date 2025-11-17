@@ -1,5 +1,4 @@
-Core/Src/traffic_light.o: ../Core/Src/traffic_light.c \
- ../Core/Inc/traffic_light.h ../Core/Inc/main.h \
+Core/Src/GPIO.o: ../Core/Src/GPIO.c ../Core/Inc/GPIO.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
@@ -23,11 +22,9 @@ Core/Src/traffic_light.o: ../Core/Src/traffic_light.c \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/global.h ../Core/Inc/software_timer.h ../Core/Inc/button.h \
- ../Core/Inc/GPIO.h ../Core/Inc/7seg.h
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 
-../Core/Inc/traffic_light.h:
+../Core/Inc/GPIO.h:
 
 ../Core/Inc/main.h:
 
@@ -78,13 +75,3 @@ Core/Src/traffic_light.o: ../Core/Src/traffic_light.c \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
-
-../Core/Inc/global.h:
-
-../Core/Inc/software_timer.h:
-
-../Core/Inc/button.h:
-
-../Core/Inc/GPIO.h:
-
-../Core/Inc/7seg.h:

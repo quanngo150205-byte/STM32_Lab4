@@ -17,6 +17,23 @@ void clear7Seg(){
 	displayDigit2(10);
 }
 
+void display7SegConfigMode(){
+	if (currentEN == 0){
+		displayDigit1(9);
+		displayDigit2(9);
+		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
+		currentEN = 1;
+	}
+	else {
+		displayDigit1(9);
+		displayDigit2(9);
+		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_RESET);
+		currentEN = 0;
+	}
+}
+
 void display7SegLed(){
 	if (currentEN == 0){
 		displayDigit1(timer_buffer[0]);

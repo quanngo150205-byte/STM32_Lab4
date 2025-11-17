@@ -1,0 +1,2 @@
+button_event.c:10:6:buttonMenuScan	8	static
+button_event.c:31:6:getManualEvent	8	static

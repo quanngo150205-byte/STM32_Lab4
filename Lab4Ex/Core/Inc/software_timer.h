@@ -17,7 +17,6 @@ void setTimers(int);           		 // Đặt cùng 1 thời gian cho tất cả t
 void setTimer(int, int); 			 // Đặt thời gian cho 1 timer
 void timer_run(void);                // Gọi định kỳ trong ngắt timer
 int  isTimerExpired(int);            // Kiểm tra timer hết hạn
-void resetTimerFlag(int);            // Xóa cờ hết hạn
 int  getTimerCounter(int);           // lấy ra counter của 1 timer
 
 #endif /* INC_SOFTWARE_TIMER_H_ */

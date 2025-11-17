@@ -16,5 +16,6 @@ void displayDigit1(int);
 void displayDigit2(int);
 void clear7Seg();
 void display7SegLed();
+void display7SegConfigMode();
 
 #endif /* INC_7SEG_H_ */

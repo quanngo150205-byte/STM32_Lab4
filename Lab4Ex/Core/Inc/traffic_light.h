@@ -8,9 +8,6 @@
 #ifndef INC_TRAFFIC_LIGHT_H_
 #define INC_TRAFFIC_LIGHT_H_
 
-#define PREIOD_SCAN_7SEG_LED		80
-#define PREIOD_UPDATE_TIME_BUFFER	500
-
 #include "main.h"
 #include "global.h"
 #include "7seg.h"
@@ -32,5 +29,6 @@ void RedToGreen2();
 void GreenToYellow2();
 
 void clearAllLed();
-void traffic_light_run(int, int, int);
+void traffic_light_autorun(int, int, int);
+void traffic_light_handrun();
 #endif /* INC_TRAFFIC_LIGHT_H_ */

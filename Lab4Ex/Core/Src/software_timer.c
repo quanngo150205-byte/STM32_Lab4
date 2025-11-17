@@ -48,13 +48,6 @@ int isTimerExpired(int index) {
 }
 
 
-
-void resetTimerFlag(int index) {
-    if (index < 0 || index >= TIMER_SIZE) return;
-    timer_flag[index] = 0;
-}
-
-
 int getTimerCounter(int index){
     if (index < 0 || index >= TIMER_SIZE) return 0;
     return timer_counter[index];

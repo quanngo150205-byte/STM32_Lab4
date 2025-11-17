@@ -8,5 +8,5 @@
 #include "fsm_automatic.h"
 
 void fsm_automatic_run(){
-	traffic_light_run(GREEN_TIME + YELLOW_TIME, YELLOW_TIME, GREEN_TIME);
+	traffic_light_autorun(GREEN_TIME + YELLOW_TIME, YELLOW_TIME, GREEN_TIME);
 }
