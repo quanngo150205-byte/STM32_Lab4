@@ -70,7 +70,6 @@ void GreenToYellow2(){
 void traffic_light_autorun(int redtime, int yellowtime, int greentime){
 	switch (trafState){
 		case START:
-			HAL_GPIO_WritePin(GPIOA, LED_Y_A_Pin|LED_Y_B_Pin|LED_Y_C_Pin|LED_Y_D_Pin, GPIO_PIN_SET);
 			trafState = RED_GREEN;
 			setTimer(TIMER_COUNTDOWN_1, redtime);
 			setTimer(TIMER_COUNTDOWN_2, greentime);
@@ -153,9 +152,8 @@ void traffic_light_hand_control_run(){
 				ALL_RED_toggle();
 				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			}
-			if (status == CONFIG && isButtonPressed(1)){
+			if (isButtonPressed(1)){
 				trafState = RED_GREEN;
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
 				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			}
 			break;
@@ -164,10 +162,6 @@ void traffic_light_hand_control_run(){
 			RedToGreen2();
 			if (isButtonPressed(1)){
 				trafState = RED_GREENBLINK;
-			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
 			}
 			break;
 		case RED_GREENBLINK:
@@ -178,19 +172,11 @@ void traffic_light_hand_control_run(){
 			if (isButtonPressed(1)){
 				trafState = RED_YELLOW;
 			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
-			}
 			break;
 		case RED_YELLOW:
 			GreenToYellow2();
 			if (isButtonPressed(1)){
 				trafState = GREEN_RED;
-			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
 			}
 			break;
 		case GREEN_RED:
@@ -198,10 +184,6 @@ void traffic_light_hand_control_run(){
 			RedToGreen1();
 			if (isButtonPressed(1)){
 				trafState = GREENBLINK_RED;
-			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
 			}
 			break;
 		case GREENBLINK_RED:
@@ -212,19 +194,11 @@ void traffic_light_hand_control_run(){
 			if (isButtonPressed(1)){
 				trafState = YELLOW_RED;
 			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
-			}
 			break;
 		case YELLOW_RED:
 			GreenToYellow1();
 			if (isButtonPressed(1)){
 				trafState = RED_GREEN;
-			}
-			if (isTimerExpired(TIMER_DISPLAY_7SEG)){
-				display7SegConfigMode();
-				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
 			}
 			break;
 		default:

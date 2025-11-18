@@ -31,21 +31,25 @@ void getNextMenuStatus() {
 
 
 void getManualEvent(){
-	if (isButtonPressed(1) || isButtonLongPressed(1)){
-		manEvt = EV_INC;
-	}
-	else if (isButtonPressed(2) || isButtonLongPressed(2)){
-		manEvt = EV_DEC;
-	}
-	else if (isButtonDoubleClicked(2)){
-		manEvt = EV_NEXT_MODE;
+	if (status == MANUAL){
+		if (isButtonPressed(1) || isButtonLongPressed(1)){
+			manEvt = EV_INC;
+		}
+		else if (isButtonPressed(2) || isButtonLongPressed(2)){
+			manEvt = EV_DEC;
+		}
+		else if (isButtonDoubleClicked(2)){
+			manEvt = EV_NEXT_MODE;
+		}
 	}
 }
 
 
 void getNextConfigState(){
-	if (isButtonDoubleClicked(1)){
-		flagConfigStateChange = 1;
+	if (status == CONFIG){
+		if (isButtonDoubleClicked(1)){
+			flagConfigStateChange = 1;
+		}
 	}
 }
 

@@ -24,6 +24,8 @@ void fsm_config_run(){
 				conf_state = HAND_CONTROL;
 				trafState = START;
 				clear7Seg();
+				clearAllLed();
+				flagConfigStateChange = 0;
 			}
 			break;
 		case HAND_CONTROL:
@@ -31,8 +33,11 @@ void fsm_config_run(){
 
 			if (flagConfigStateChange){
 				conf_state = NIGHT_MODE;
+				clear7Seg();
+				clearAllLed();
 				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
+				flagConfigStateChange = 0;
 			}
 			break;
 		case NIGHT_MODE:
@@ -48,8 +53,11 @@ void fsm_config_run(){
 
 			if (flagConfigStateChange){
 				conf_state = CONF_INIT;
+				clear7Seg();
+				clearAllLed();
 				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 				setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG_LED);
+				flagConfigStateChange = 0;
 			}
 			break;
 		default:

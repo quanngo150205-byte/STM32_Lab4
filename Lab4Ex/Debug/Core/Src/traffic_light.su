@@ -6,4 +6,4 @@ traffic_light.c:51:6:YellowToRed2	8	static
 traffic_light.c:57:6:RedToGreen2	8	static
 traffic_light.c:63:6:GreenToYellow2	8	static
 traffic_light.c:70:6:traffic_light_autorun	32	static
-traffic_light.c:149:6:traffic_light_hand_control_run	8	static
+traffic_light.c:148:6:traffic_light_hand_control_run	8	static
