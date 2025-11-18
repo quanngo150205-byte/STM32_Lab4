@@ -10,7 +10,6 @@
 
 #include "global.h"
 #include "traffic_light.h"
-#include "7seg.h"
 
 
 void fsm_manual_run();

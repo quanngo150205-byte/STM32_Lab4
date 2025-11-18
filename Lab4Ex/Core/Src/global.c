@@ -14,6 +14,9 @@ int flagMenuChange = 0;
 ManualEvent manEvt = EV_NONE;
 ManualState man_state = MAN_RED;
 
+ConfigState conf_state = CONF_INIT;
+int flagConfigStateChange = 0;
+
 void doInit(){
 	status = INIT;
 	nextMenuState = INIT;

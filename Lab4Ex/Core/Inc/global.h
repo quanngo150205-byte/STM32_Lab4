@@ -48,12 +48,22 @@ typedef enum {
 } ManualEvent;
 
 
+// Config mode states
+typedef enum {
+	CONF_INIT,
+	HAND_CONTROL,
+	NIGHT_MODE
+} ConfigState;
+
 extern int status;
 extern int nextMenuState;
 extern int flagMenuChange;
 
 extern ManualEvent manEvt;
 extern ManualState man_state;
+
+extern ConfigState conf_state;
+extern int flagConfigStateChange;
 
 void doInit();
 

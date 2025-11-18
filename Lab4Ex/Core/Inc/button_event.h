@@ -10,7 +10,8 @@
 
 #include "global.h"
 
-void buttonMenuScan();
+void getNextMenuStatus();
 void getManualEvent();
+void getNextConfigState();
 
 #endif /* INC_BUTTON_EVENT_H_ */

@@ -7,7 +7,7 @@
 
 #include "button_event.h"
 
-void buttonMenuScan() {
+void getNextMenuStatus() {
     if (isButtonPressed(0)) {
         flagMenuChange = 1;
         switch (status) {
@@ -23,6 +23,8 @@ void buttonMenuScan() {
             case CONFIG:
                 nextMenuState = INIT;
                 break;
+            default:
+            	break;
         }
     }
 }
@@ -39,3 +41,11 @@ void getManualEvent(){
 		manEvt = EV_NEXT_MODE;
 	}
 }
+
+
+void getNextConfigState(){
+	if (isButtonDoubleClicked(1)){
+		flagConfigStateChange = 1;
+	}
+}
+

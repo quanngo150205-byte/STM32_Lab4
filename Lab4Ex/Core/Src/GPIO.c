@@ -22,10 +22,10 @@ void ALL_GREEN_toggle(){
 	HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin | LED_G_B_Pin | LED_G_C_Pin | LED_G_D_Pin);
 }
 
-void BLINK_GREEN_ROAD2(){
-	HAL_GPIO_TogglePin(GPIOA, LED_G_B_Pin|LED_G_D_Pin);
-}
-
 void BLINK_GREEN_ROAD1(){
 	HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin|LED_G_C_Pin);
+}
+
+void BLINK_GREEN_ROAD2(){
+	HAL_GPIO_TogglePin(GPIOA, LED_G_B_Pin|LED_G_D_Pin);
 }

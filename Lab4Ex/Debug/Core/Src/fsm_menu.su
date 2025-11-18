@@ -1,3 +1,3 @@
 fsm_menu.c:11:13:doEntry	16	static
-fsm_menu.c:37:13:doAction	16	static
-fsm_menu.c:53:6:fsm_menu_run	8	static
+fsm_menu.c:38:13:doAction	16	static
+fsm_menu.c:55:6:fsm_menu_run	8	static

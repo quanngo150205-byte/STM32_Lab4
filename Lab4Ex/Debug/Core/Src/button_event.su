@@ -1,2 +1,3 @@
-button_event.c:10:6:buttonMenuScan	8	static
-button_event.c:31:6:getManualEvent	8	static
+button_event.c:10:6:getNextMenuStatus	8	static
+button_event.c:33:6:getManualEvent	8	static
+button_event.c:46:6:getNextConfigState	8	static

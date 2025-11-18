@@ -30,5 +30,5 @@ void GreenToYellow2();
 
 void clearAllLed();
 void traffic_light_autorun(int, int, int);
-void traffic_light_handrun();
+void traffic_light_hand_control_run();
 #endif /* INC_TRAFFIC_LIGHT_H_ */

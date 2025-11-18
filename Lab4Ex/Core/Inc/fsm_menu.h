@@ -10,10 +10,9 @@
 
 #include "global.h"
 #include "button_event.h"
-#include "traffic_light.h"
-#include "7seg.h"
 #include "fsm_automatic.h"
 #include "fsm_manual.h"
+#include "fsm_config.h"
 
 void fsm_menu_run();
 

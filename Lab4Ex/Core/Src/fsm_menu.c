@@ -29,6 +29,7 @@ static void doEntry(int state) {
         	clear7Seg();
         	clearAllLed();
         	trafState = START;
+        	conf_state = CONF_INIT;
             break;
         default: break;
     }
@@ -45,6 +46,7 @@ static void doAction(int state) {
         	fsm_manual_run();
             break;
         case CONFIG:
+        	fsm_config_run();
             break;
         default: break;
     }

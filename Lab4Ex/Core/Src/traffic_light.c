@@ -146,7 +146,7 @@ void traffic_light_autorun(int redtime, int yellowtime, int greentime){
 		}
 }
 
-void traffic_light_handrun(){
+void traffic_light_hand_control_run(){
 	switch (trafState){
 		case START:
 			if (isTimerExpired(TIMER_BLINK_LED)){
