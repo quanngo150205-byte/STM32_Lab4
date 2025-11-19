@@ -20,6 +20,7 @@
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "fsm_menu.h"
+#include "scheduler.h"
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
@@ -92,12 +93,21 @@ int main(void)
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
   doInit();
+  SCH_Init();
+
+  SCH_Add_Task(timer_run, 0, 10);
+  SCH_Add_Task(getKeyInput, 0, 10);
+  SCH_Add_Task(getNextMenuStatus, 0, 10);
+  SCH_Add_Task(	getManualEvent, 0, 10);
+  SCH_Add_Task(getNextConfigState, 0, 10);
+  SCH_Add_Task(fsm_menu_run, 10, 10);
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  fsm_menu_run();
+	 SCH_Dispatch_Tasks();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -245,11 +255,7 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
-	timer_run();
-	getKeyInput();
-	getNextMenuStatus();
-	getManualEvent();
-	getNextConfigState();
+	SCH_Update();
 }
 /* USER CODE END 4 */
 
