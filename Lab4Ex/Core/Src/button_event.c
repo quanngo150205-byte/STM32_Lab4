@@ -47,7 +47,7 @@ void getManualEvent(){
 
 void getNextConfigState(){
 	if (status == CONFIG){
-		if (isButtonDoubleClicked(1)){
+		if (isButtonDoubleClicked(2)){
 			flagConfigStateChange = 1;
 		}
 	}

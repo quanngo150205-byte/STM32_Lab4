@@ -146,62 +146,64 @@ void traffic_light_autorun(int redtime, int yellowtime, int greentime){
 }
 
 void traffic_light_hand_control_run(){
-	switch (trafState){
-		case START:
-			if (isTimerExpired(TIMER_BLINK_LED)){
-				ALL_RED_toggle();
-				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
-			}
-			if (isButtonPressed(1)){
-				trafState = RED_GREEN;
-				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
-			}
-			break;
-		case RED_GREEN:
-			YellowToRed1();
-			RedToGreen2();
-			if (isButtonPressed(1)){
-				trafState = RED_GREENBLINK;
-			}
-			break;
-		case RED_GREENBLINK:
-			if (isTimerExpired(TIMER_BLINK_LED)){
-				BLINK_GREEN_ROAD2();
-				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
-			}
-			if (isButtonPressed(1)){
-				trafState = RED_YELLOW;
-			}
-			break;
-		case RED_YELLOW:
-			GreenToYellow2();
-			if (isButtonPressed(1)){
-				trafState = GREEN_RED;
-			}
-			break;
-		case GREEN_RED:
-			YellowToRed2();
-			RedToGreen1();
-			if (isButtonPressed(1)){
-				trafState = GREENBLINK_RED;
-			}
-			break;
-		case GREENBLINK_RED:
-			if (isTimerExpired(TIMER_BLINK_LED)){
-				HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin|LED_G_C_Pin);
-				setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
-			}
-			if (isButtonPressed(1)){
-				trafState = YELLOW_RED;
-			}
-			break;
-		case YELLOW_RED:
-			GreenToYellow1();
-			if (isButtonPressed(1)){
-				trafState = RED_GREEN;
-			}
-			break;
-		default:
-			break;
+	if (conf_state == HAND_CONTROL){
+		switch (trafState){
+			case START:
+				if (isTimerExpired(TIMER_BLINK_LED)){
+					ALL_RED_toggle();
+					setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
+				}
+				if (isButtonPressed(1)){
+					trafState = RED_GREEN;
+					setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
+				}
+				break;
+			case RED_GREEN:
+				YellowToRed1();
+				RedToGreen2();
+				if (isButtonPressed(1)){
+					trafState = RED_GREENBLINK;
+				}
+				break;
+			case RED_GREENBLINK:
+				if (isTimerExpired(TIMER_BLINK_LED)){
+					BLINK_GREEN_ROAD2();
+					setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
+				}
+				if (isButtonPressed(1)){
+					trafState = RED_YELLOW;
+				}
+				break;
+			case RED_YELLOW:
+				GreenToYellow2();
+				if (isButtonPressed(1)){
+					trafState = GREEN_RED;
+				}
+				break;
+			case GREEN_RED:
+				YellowToRed2();
+				RedToGreen1();
+				if (isButtonPressed(1)){
+					trafState = GREENBLINK_RED;
+				}
+				break;
+			case GREENBLINK_RED:
+				if (isTimerExpired(TIMER_BLINK_LED)){
+					HAL_GPIO_TogglePin(GPIOA, LED_G_A_Pin|LED_G_C_Pin);
+					setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
+				}
+				if (isButtonPressed(1)){
+					trafState = YELLOW_RED;
+				}
+				break;
+			case YELLOW_RED:
+				GreenToYellow1();
+				if (isButtonPressed(1)){
+					trafState = RED_GREEN;
+				}
+				break;
+			default:
+				break;
 		}
 	}
+}
