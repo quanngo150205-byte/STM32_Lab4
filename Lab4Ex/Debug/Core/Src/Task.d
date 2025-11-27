@@ -1,6 +1,7 @@
-Core/Src/fsm_menu.o: ../Core/Src/fsm_menu.c ../Core/Inc/fsm_menu.h \
- ../Core/Inc/global.h ../Core/Inc/software_timer.h ../Core/Inc/button.h \
- ../Core/Inc/main.h ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
+Core/Src/Task.o: ../Core/Src/Task.c ../Core/Inc/Task.h \
+ ../Core/Inc/fsm_automatic.h ../Core/Inc/global.h \
+ ../Core/Inc/software_timer.h ../Core/Inc/button.h ../Core/Inc/main.h \
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_def.h \
@@ -24,11 +25,13 @@ Core/Src/fsm_menu.o: ../Core/Src/fsm_menu.c ../Core/Inc/fsm_menu.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/GPIO.h ../Core/Inc/button_event.h \
- ../Core/Inc/fsm_automatic.h ../Core/Inc/traffic_light.h \
- ../Core/Inc/7seg.h ../Core/Inc/fsm_manual.h ../Core/Inc/fsm_config.h
+ ../Core/Inc/traffic_light.h ../Core/Inc/7seg.h ../Core/Inc/fsm_config.h \
+ ../Core/Inc/gpio.h ../Core/Inc/fsm_manual.h ../Core/Inc/gpio.h \
+ ../Core/Inc/button_event.h
 
-../Core/Inc/fsm_menu.h:
+../Core/Inc/Task.h:
+
+../Core/Inc/fsm_automatic.h:
 
 ../Core/Inc/global.h:
 
@@ -86,16 +89,16 @@ Core/Src/fsm_menu.o: ../Core/Src/fsm_menu.c ../Core/Inc/fsm_menu.h \
 
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
 
-../Core/Inc/GPIO.h:
-
-../Core/Inc/button_event.h:
-
-../Core/Inc/fsm_automatic.h:
-
 ../Core/Inc/traffic_light.h:
 
 ../Core/Inc/7seg.h:
 
+../Core/Inc/fsm_config.h:
+
+../Core/Inc/gpio.h:
+
 ../Core/Inc/fsm_manual.h:
 
-../Core/Inc/fsm_config.h:
+../Core/Inc/gpio.h:
+
+../Core/Inc/button_event.h:

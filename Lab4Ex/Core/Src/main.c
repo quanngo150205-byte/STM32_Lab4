@@ -19,7 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "fsm_menu.h"
+#include "Task.h"
 #include "scheduler.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -97,10 +97,8 @@ int main(void)
 
   SCH_Add_Task(timer_run, 0, 1);
   SCH_Add_Task(getKeyInput, 0, 1);
-  SCH_Add_Task(getNextMenuStatus, 0, 1);
-  SCH_Add_Task(getManualEvent, 0, 1);
-  SCH_Add_Task(getNextConfigState, 0, 1);
-  SCH_Add_Task(fsm_menu_run, 1, 1);
+  SCH_Add_Task(button_event_scan, 0, 1);
+  SCH_Add_Task(fsm_run_all, 1, 1);
 
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);

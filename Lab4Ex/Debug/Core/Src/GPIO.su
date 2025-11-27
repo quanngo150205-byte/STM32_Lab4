@@ -1,6 +1,6 @@
-GPIO.c:9:6:LED_PA5_toggle	8	static
-GPIO.c:13:6:ALL_RED_toggle	8	static
-GPIO.c:17:6:ALL_YELLOW_toggle	8	static
-GPIO.c:21:6:ALL_GREEN_toggle	8	static
-GPIO.c:25:6:BLINK_GREEN_ROAD1	8	static
-GPIO.c:29:6:BLINK_GREEN_ROAD2	8	static
+gpio.c:9:6:LED_PA5_toggle	8	static
+gpio.c:13:6:ALL_RED_toggle	8	static
+gpio.c:17:6:ALL_YELLOW_toggle	8	static
+gpio.c:21:6:ALL_GREEN_toggle	8	static
+gpio.c:25:6:BLINK_GREEN_ROAD1	8	static
+gpio.c:29:6:BLINK_GREEN_ROAD2	8	static

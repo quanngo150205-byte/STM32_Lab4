@@ -25,4 +25,5 @@ void doInit(){
 	setTimers(100);
 	clear7Seg();
 	clearAllLed();
+	button_init();
 }
