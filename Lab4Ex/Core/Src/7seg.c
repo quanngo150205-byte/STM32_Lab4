@@ -10,43 +10,22 @@
 int currentEN = 0;
 int timer_buffer[NUM_OF_7SEG_LED] = {0};
 
-void clear7Seg(){
-	HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
-	HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
-	displayDigit1(10);
-	displayDigit2(10);
-}
+void displayDigit1(int);
+void displayDigit2(int);
+void ENSet(int);
 
-void display7SegConfigMode(){
-	if (currentEN == 0){
-		displayDigit1(9);
-		displayDigit2(9);
-		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
-		currentEN = 1;
-	}
-	else {
-		displayDigit1(9);
-		displayDigit2(9);
-		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_RESET);
-		currentEN = 0;
-	}
-}
 
 void display7SegLed(){
 	if (currentEN == 0){
 		displayDigit1(timer_buffer[0]);
 		displayDigit2(timer_buffer[1]);
-		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);
-		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
+		ENSet(0);
 		currentEN = 1;
 	}
 	else {
 		displayDigit1(timer_buffer[2]);
 		displayDigit2(timer_buffer[3]);
-		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
-		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_RESET);
+		ENSet(1);
 		currentEN = 0;
 	}
 }
@@ -60,8 +39,29 @@ void updateTimerBuffer(int counter1, int counter2){
 	timer_buffer[3] = sec2 % 10;
 }
 
+void clear7Seg(){
+	ENSet(2);
+	displayDigit1(10);
+	displayDigit2(10);
+}
 
-//ham hien led 7 doan
+void ENSet(int num){
+	switch (num){
+	case 0:
+		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_RESET);
+		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
+		break;
+	case 1:
+		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_RESET);
+		break;
+	default:
+		HAL_GPIO_WritePin(GPIOB, EN0_Pin, GPIO_PIN_SET);
+		HAL_GPIO_WritePin(GPIOB, EN1_Pin, GPIO_PIN_SET);
+		break;
+	}
+}
+
 void displayDigit1 (int num) {
     switch (num) {
         case 0:

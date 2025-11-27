@@ -1,25 +1,17 @@
 /*
  * global.c
  *
- *  Created on: Nov 17, 2025
+ *  Created on: Oct 28, 2025
  *      Author: ngoqu
  */
-
 #include "global.h"
 
-int status = 0;
-int nextMenuState = 0;
-int flagMenuChange = 0;
 
-ManualEvent manEvt = EV_NONE;
-ManualState man_state = MAN_RED;
+int status 				= 0;
+int flagchangeMode 		= 0;
+int flagcontrolManual 	= 0;
+int flagcontrolConfig	= 0;
 
-ConfigState conf_state = CONF_INIT;
-int flagConfigStateChange = 0;
-
-void doInit(){
-	status = INIT;
-	nextMenuState = INIT;
-	button_init();
-	setTimers(100);
-}
+int RedTime 			= DEFAULT_REDTIME;
+int AmberTime 			= DEFAULT_AMBERTIME;
+int GreenTime			= DEFAULT_GREENTIME;

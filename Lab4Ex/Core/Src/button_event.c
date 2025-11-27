@@ -1,54 +1,51 @@
 /*
- * button_event.c
+ * button_even.c
  *
- *  Created on: Nov 17, 2025
+ *  Created on: Nov 28, 2025
  *      Author: ngoqu
  */
 
 #include "button_event.h"
 
-void getNextMenuStatus() {
-    if (isButtonPressed(0)) {
-        flagMenuChange = 1;
-        switch (status) {
-            case INIT:
-                nextMenuState = AUTO;
-                break;
-            case AUTO:
-                nextMenuState = MANUAL;
-                break;
-            case MANUAL:
-                nextMenuState = CONFIG;
-                break;
-            case CONFIG:
-                nextMenuState = INIT;
-                break;
-            default:
-            	break;
-        }
-    }
+void getModeFlag();
+void getManualFlag();
+void getConfigFlag();
+
+void button_event_scan(){
+	//change between Auto - Manual - Config
+	getModeFlag();
+
+	//scan tio change state in Manual mode
+	getManualFlag();
+
+	//scan to change state in Config mode
+	getConfigFlag();
 }
 
+void getModeFlag(){
+	if (isButtonPressed(0)){
+		flagchangeMode = 1;
+	}
+}
 
-void getManualEvent(){
-	if (status == MANUAL){
-		if (isButtonPressed(1) || isButtonLongPressed(1)){
-			manEvt = EV_INC;
-		}
-		else if (isButtonPressed(2) || isButtonLongPressed(2)){
-			manEvt = EV_DEC;
-		}
-		else if (isButtonDoubleClicked(2)){
-			manEvt = EV_NEXT_MODE;
+void getConfigFlag(){
+	if (status == CONFIG_AMBER ||
+		status == CONFIG_GREEN ||
+		status == CONFIG_RED){
+		if (isButtonDoubleClicked(2)){
+			flagcontrolConfig = 1;
 		}
 	}
 }
 
-
-void getNextConfigState(){
-	if (status == CONFIG){
-		if (isButtonDoubleClicked(2)){
-			flagConfigStateChange = 1;
+void getManualFlag(){
+	if (status == MANUAL 		||
+		status == MAN_AMBER_RED ||
+		status == MAN_GREEN_RED	||
+		status == MAN_RED_AMBER 	||
+		status == MAN_RED_GREEN){
+		if (isButtonPressed(1)){
+			flagcontrolManual = 1;
 		}
 	}
 }

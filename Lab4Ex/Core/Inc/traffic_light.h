@@ -10,13 +10,6 @@
 
 #include "main.h"
 #include "global.h"
-#include "7seg.h"
-
-typedef enum {
-		START, RED_GREEN, RED_YELLOW, GREEN_RED, YELLOW_RED, RED_GREENBLINK, GREENBLINK_RED
-}traffic_state;
-
-extern traffic_state trafState;
 
 /* Ham chuyen den duong 1*/
 void YellowToRed1();
@@ -29,6 +22,5 @@ void RedToGreen2();
 void GreenToYellow2();
 
 void clearAllLed();
-void traffic_light_autorun(int, int, int);
-void traffic_light_hand_control_run();
+
 #endif /* INC_TRAFFIC_LIGHT_H_ */

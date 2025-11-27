@@ -1,7 +1,7 @@
 /*
- * button_event.h
+ * button_even.h
  *
- *  Created on: Nov 17, 2025
+ *  Created on: Nov 28, 2025
  *      Author: ngoqu
  */
 
@@ -10,8 +10,6 @@
 
 #include "global.h"
 
-void getNextMenuStatus();
-void getManualEvent();
-void getNextConfigState();
+void button_event_scan();
 
 #endif /* INC_BUTTON_EVENT_H_ */
