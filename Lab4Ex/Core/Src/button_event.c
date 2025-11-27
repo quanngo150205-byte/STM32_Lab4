@@ -12,14 +12,14 @@ void getManualFlag();
 void getConfigFlag();
 
 void button_event_scan(){
-	//change between Auto - Manual - Config
-	getModeFlag();
-
 	//scan tio change state in Manual mode
 	getManualFlag();
 
 	//scan to change state in Config mode
 	getConfigFlag();
+
+	//change between Auto - Manual - Config
+	getModeFlag();
 }
 
 void getModeFlag(){

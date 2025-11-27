@@ -1780,17 +1780,17 @@ void getConfigFlag();
 void button_event_scan(){
  8000e2c:	b580      	push	{r7, lr}
  8000e2e:	af00      	add	r7, sp, #0
-	//change between Auto - Manual - Config
-	getModeFlag();
- 8000e30:	f000 f806 	bl	8000e40 <getModeFlag>
-
 	//scan tio change state in Manual mode
 	getManualFlag();
- 8000e34:	f000 f832 	bl	8000e9c <getManualFlag>
+ 8000e30:	f000 f834 	bl	8000e9c <getManualFlag>
 
 	//scan to change state in Config mode
 	getConfigFlag();
- 8000e38:	f000 f812 	bl	8000e60 <getConfigFlag>
+ 8000e34:	f000 f814 	bl	8000e60 <getConfigFlag>
+
+	//change between Auto - Manual - Config
+	getModeFlag();
+ 8000e38:	f000 f802 	bl	8000e40 <getModeFlag>
 }
  8000e3c:	bf00      	nop
  8000e3e:	bd80      	pop	{r7, pc}
