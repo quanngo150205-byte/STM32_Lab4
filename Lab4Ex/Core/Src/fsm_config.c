@@ -40,6 +40,7 @@ void fsm_config_run(){
         }
         if (flagcontrolConfig){
         	status = CONFIG_AMBER;
+        	clearAllLed();
         	flagcontrolConfig = 0;
         }
 		if (flagchangeMode){
@@ -76,6 +77,7 @@ void fsm_config_run(){
         }
         if (flagcontrolConfig){
         	status = CONFIG_GREEN;
+        	clearAllLed();
         	flagcontrolConfig = 0;
         }
 		if (flagchangeMode){
@@ -101,8 +103,8 @@ void fsm_config_run(){
             setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
         }
         if (isButtonLongPressed(1) || isButtonPressed(1)){
-            if (amber_temp <= red_temp - amber_temp){
-                amber_temp++;
+            if (green_temp < red_temp - amber_temp){
+                green_temp++;
             }
         }
 		if (flagcontrolConfig){
@@ -114,6 +116,7 @@ void fsm_config_run(){
 		    setTimer(TIMER_COUNTDOWN_2, GreenTime);
 		    setTimer(TIMER_DISPLAY_7SEG, 40);
 		    setTimer(TIMER_UPDATE_BUFFER, 10);
+		    clearAllLed();
 		    flagcontrolConfig = 0;
 		}
 		if (flagchangeMode){

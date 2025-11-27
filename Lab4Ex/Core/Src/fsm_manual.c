@@ -25,6 +25,7 @@ void fsm_manual_run(){
 			setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			setTimer(TIMER_UPDATE_BUFFER, PERIOD_UPDATE_TIME_BUFFER);
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
+			clearAllLed();
 			flagchangeMode = 0;
 		}
 		break;
@@ -40,6 +41,7 @@ void fsm_manual_run(){
 			setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			setTimer(TIMER_UPDATE_BUFFER, PERIOD_UPDATE_TIME_BUFFER);
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
+			clearAllLed();
 			flagchangeMode = 0;
 		}
 		break;
@@ -54,6 +56,7 @@ void fsm_manual_run(){
 			setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			setTimer(TIMER_UPDATE_BUFFER, PERIOD_UPDATE_TIME_BUFFER);
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
+			clearAllLed();
 			flagchangeMode = 0;
 		}
 		break;
@@ -69,6 +72,7 @@ void fsm_manual_run(){
 			setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			setTimer(TIMER_UPDATE_BUFFER, PERIOD_UPDATE_TIME_BUFFER);
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
+			clearAllLed();
 			flagchangeMode = 0;
 		}
 		break;
@@ -83,6 +87,7 @@ void fsm_manual_run(){
 			setTimer(TIMER_BLINK_LED, COLOR_LED_BLINK_CYCLE);
 			setTimer(TIMER_UPDATE_BUFFER, PERIOD_UPDATE_TIME_BUFFER);
 			setTimer(TIMER_DISPLAY_7SEG, PERIOD_SCAN_7SEG);
+			clearAllLed();
 			flagchangeMode = 0;
 		}
 		break;
