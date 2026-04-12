@@ -11,6 +11,7 @@
 #include "fsm_automatic.h"
 #include "fsm_config.h"
 #include "fsm_manual.h"
+#include "crossroad.h"
 #include "button_event.h"
 
 void BlinkLed();

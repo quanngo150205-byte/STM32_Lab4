@@ -18,6 +18,7 @@ void fsm_run_all(){
 	fsm_automatic_run();
 	fsm_manual_run();
 	fsm_config_run();
+	fsm_pedestrian_run();
 }
 
 void doInit(){

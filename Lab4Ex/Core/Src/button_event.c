@@ -10,8 +10,12 @@
 void getModeFlag();
 void getManualFlag();
 void getConfigFlag();
+void getPedestrianFlag();
 
 void button_event_scan(){
+	//scan to get pedestrian crossing flag
+	getPedestrianFlag();
+
 	//scan tio change state in Manual mode
 	getManualFlag();
 
@@ -42,7 +46,7 @@ void getManualFlag(){
 	if (status == MANUAL 		||
 		status == MAN_AMBER_RED ||
 		status == MAN_GREEN_RED	||
-		status == MAN_RED_AMBER 	||
+		status == MAN_RED_AMBER ||
 		status == MAN_RED_GREEN){
 		if (isButtonPressed(1)){
 			flagcontrolManual = 1;
@@ -50,3 +54,11 @@ void getManualFlag(){
 	}
 }
 
+void getPedestrianFlag(){
+	if (status == RED_GREEN ||
+		status == GREEN_RED){
+		if (isButtonPressed(1)){
+			flagPedestrian = 1;
+		}
+	}
+}

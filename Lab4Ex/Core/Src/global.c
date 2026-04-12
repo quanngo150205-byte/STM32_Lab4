@@ -11,6 +11,7 @@ int status 				= 0;
 int flagchangeMode 		= 0;
 int flagcontrolManual 	= 0;
 int flagcontrolConfig	= 0;
+int flagPedestrian		= 0;
 
 int RedTime 			= DEFAULT_REDTIME;
 int AmberTime 			= DEFAULT_AMBERTIME;

@@ -52,6 +52,7 @@ extern int status;
 extern int flagchangeMode;
 extern int flagcontrolManual;
 extern int flagcontrolConfig;
+extern int flagPedestrian;
 
 
 extern int RedTime;
