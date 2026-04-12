@@ -33,12 +33,16 @@
 #define TIMER_BLINK_LED				3
 #define TIMER_DISPLAY_7SEG			4
 #define TIMER_UPDATE_BUFFER			5
+#define TIMER_LCD_BLINK				6
+#define TIMER_LCD_UPDATE			7
 
 //DEFINE TIME TO SET
 #define LED_PA5_CYCLE				1000
 #define COLOR_LED_BLINK_CYCLE		250
 #define PERIOD_SCAN_7SEG			40
 #define PERIOD_UPDATE_TIME_BUFFER	100
+#define PERIOD_LCD_BLINK			500
+#define PERIOD_LCD_UPDATE			250
 
 
 #define DEFAULT_REDTIME				5000
@@ -53,11 +57,17 @@ extern int flagchangeMode;
 extern int flagcontrolManual;
 extern int flagcontrolConfig;
 extern int flagPedestrian;
+extern int flagPedDisplay;
+extern int pedDisplayRoad;
 
 
 extern int RedTime;
 extern int AmberTime;
 extern int GreenTime;
+
+extern int red_temp;
+extern int amber_temp;
+extern int green_temp;
 
 
 #endif /* INC_GLOBAL_H_ */

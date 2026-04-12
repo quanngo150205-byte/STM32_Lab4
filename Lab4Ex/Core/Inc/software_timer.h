@@ -9,7 +9,7 @@
 #define INC_SOFTWARE_TIMER_H_
 
 
-#define TIMER_SIZE   6     // Số lượng timer
+#define TIMER_SIZE   8     // Số lượng timer
 #define TICK  10     // Chu kỳ timer tick (ms), tương ứng chu kỳ ngắt
 
 

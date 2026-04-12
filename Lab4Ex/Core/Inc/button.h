@@ -10,7 +10,7 @@
 
 #include "main.h"
 
-#define MAX_BUTTONS     				3      // Số lượng nút tối đa
+#define MAX_BUTTONS     				4      // Số lượng nút tối đa
 #define NORMAL_STATE    				GPIO_PIN_SET
 #define PRESSED_STATE   				GPIO_PIN_RESET
 #define DURATION_FOR_AUTO_INCREASING    100	   // tuong duong 1s

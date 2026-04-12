@@ -39,6 +39,11 @@ void fsm_pedestrian_run(void){
 			} else {
 				setTimer(TIMER_COUNTDOWN_1, TICK);  // dam bao timer khong bi am
 			}
+
+			// Bat hien thi LCD xin qua duong - tuyen 2 dang xanh
+			flagPedDisplay = 1;
+			pedDisplayRoad = 2;
+			setTimer(TIMER_LCD_BLINK, PERIOD_LCD_BLINK);
 		}
 		// Neu greenCounter <= 500 (duoi 5 giay) -> khong lam gi ca
 
@@ -59,6 +64,11 @@ void fsm_pedestrian_run(void){
 			} else {
 				setTimer(TIMER_COUNTDOWN_2, TICK);  // dam bao timer khong bi am
 			}
+
+			// Bat hien thi LCD xin qua duong - tuyen 1 dang xanh
+			flagPedDisplay = 1;
+			pedDisplayRoad = 1;
+			setTimer(TIMER_LCD_BLINK, PERIOD_LCD_BLINK);
 		}
 		// Neu greenCounter <= 500 (duoi 5 giay) -> khong lam gi ca
 	}

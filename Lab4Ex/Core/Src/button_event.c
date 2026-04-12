@@ -57,7 +57,7 @@ void getManualFlag(){
 void getPedestrianFlag(){
 	if (status == RED_GREEN ||
 		status == GREEN_RED){
-		if (isButtonPressed(1)){
+		if (isButtonPressed(3)){
 			flagPedestrian = 1;
 		}
 	}

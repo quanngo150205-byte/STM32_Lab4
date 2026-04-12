@@ -6,6 +6,7 @@
  */
 
 #include "fsm_config.h"
+#include "display_lcd.h"
 
 int red_temp 	= 0;
 int amber_temp 	= 0;
@@ -14,6 +15,21 @@ int green_temp 	= 0;
 void DoAction();
 
 void fsm_config_run(){
+	// ================= UI LCD UPDATE ================= //
+	if (status >= CONFIG_RED && status <= CONFIG_GREEN) {
+		if (isTimerExpired(TIMER_LCD_UPDATE)) {
+			const char *mode_str = "";
+			int time_val = 0;
+			if (status == CONFIG_RED) { mode_str = "RED"; time_val = red_temp; }
+			else if (status == CONFIG_AMBER) { mode_str = "AMB"; time_val = amber_temp; }
+			else if (status == CONFIG_GREEN) { mode_str = "GRE"; time_val = green_temp; }
+			
+			lcd_ui_config(mode_str, time_val);
+			setTimer(TIMER_LCD_UPDATE, PERIOD_LCD_UPDATE);
+		}
+	}
+	// =================================================== //
+
 	switch (status){
 	case CONFIG_RED:
 		if (isTimerExpired(TIMER_BLINK_LED)){
@@ -50,6 +66,7 @@ void fsm_config_run(){
 		    setTimer(TIMER_DISPLAY_7SEG, 40);
 		    setTimer(TIMER_UPDATE_BUFFER, 10);
 			flagchangeMode = 0;
+			flagPedDisplay = 0;
 		}
 		break;
 	case CONFIG_AMBER:
@@ -87,6 +104,7 @@ void fsm_config_run(){
 		    setTimer(TIMER_DISPLAY_7SEG, 40);
 		    setTimer(TIMER_UPDATE_BUFFER, 10);
 			flagchangeMode = 0;
+			flagPedDisplay = 0;
 		}
 		break;
 	case CONFIG_GREEN:
@@ -118,6 +136,7 @@ void fsm_config_run(){
 		    setTimer(TIMER_UPDATE_BUFFER, 10);
 		    clearAllLed();
 		    flagcontrolConfig = 0;
+			flagPedDisplay = 0;
 		}
 		if (flagchangeMode){
 			status = RED_GREEN;
@@ -126,6 +145,7 @@ void fsm_config_run(){
 		    setTimer(TIMER_DISPLAY_7SEG, 40);
 		    setTimer(TIMER_UPDATE_BUFFER, 10);
 			flagchangeMode = 0;
+			flagPedDisplay = 0;
 		}
 		break;
 	default:

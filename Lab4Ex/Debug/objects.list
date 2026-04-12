@@ -4,6 +4,7 @@
 "./Core/Src/button.o"
 "./Core/Src/button_event.o"
 "./Core/Src/crossroad.o"
+"./Core/Src/display_lcd.o"
 "./Core/Src/fsm_automatic.o"
 "./Core/Src/fsm_config.o"
 "./Core/Src/fsm_manual.o"

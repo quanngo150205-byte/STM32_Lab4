@@ -1,0 +1,5 @@
+../Core/Src/display_lcd.c:15:6:display_lcd_init	1
+../Core/Src/display_lcd.c:19:6:lcd_ui_auto	1
+../Core/Src/display_lcd.c:28:6:lcd_ui_pedestrian_warning	1
+../Core/Src/display_lcd.c:35:6:lcd_ui_manual	1
+../Core/Src/display_lcd.c:43:6:lcd_ui_config	1

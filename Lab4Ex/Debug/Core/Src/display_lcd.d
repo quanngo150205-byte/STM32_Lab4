@@ -1,5 +1,5 @@
-Core/Src/Task.o: ../Core/Src/Task.c ../Core/Inc/Task.h \
- ../Core/Inc/fsm_automatic.h ../Core/Inc/global.h \
+Core/Src/display_lcd.o: ../Core/Src/display_lcd.c \
+ ../Core/Inc/display_lcd.h ../Core/Inc/i2c_lcd.h ../Core/Inc/global.h \
  ../Core/Inc/software_timer.h ../Core/Inc/button.h ../Core/Inc/main.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h \
  ../Core/Inc/stm32f1xx_hal_conf.h \
@@ -25,13 +25,9 @@ Core/Src/Task.o: ../Core/Src/Task.c ../Core/Inc/Task.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_i2c.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h \
  ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h \
- ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h \
- ../Core/Inc/traffic_light.h ../Core/Inc/7seg.h ../Core/Inc/fsm_config.h \
- ../Core/Inc/gpio.h ../Core/Inc/fsm_manual.h ../Core/Inc/gpio.h \
- ../Core/Inc/crossroad.h ../Core/Inc/button_event.h \
- ../Core/Inc/scheduler.h ../Core/Inc/i2c_lcd.h ../Core/Inc/display_lcd.h
-../Core/Inc/Task.h:
-../Core/Inc/fsm_automatic.h:
+ ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
+../Core/Inc/display_lcd.h:
+../Core/Inc/i2c_lcd.h:
 ../Core/Inc/global.h:
 ../Core/Inc/software_timer.h:
 ../Core/Inc/button.h:
@@ -61,14 +57,3 @@ Core/Src/Task.o: ../Core/Src/Task.c ../Core/Inc/Task.h \
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h:
 ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h:
-../Core/Inc/traffic_light.h:
-../Core/Inc/7seg.h:
-../Core/Inc/fsm_config.h:
-../Core/Inc/gpio.h:
-../Core/Inc/fsm_manual.h:
-../Core/Inc/gpio.h:
-../Core/Inc/crossroad.h:
-../Core/Inc/button_event.h:
-../Core/Inc/scheduler.h:
-../Core/Inc/i2c_lcd.h:
-../Core/Inc/display_lcd.h:

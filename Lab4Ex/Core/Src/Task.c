@@ -27,4 +27,5 @@ void doInit(){
 	clear7Seg();
 	clearAllLed();
 	button_init();
+	display_lcd_init();
 }

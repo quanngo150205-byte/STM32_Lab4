@@ -10,8 +10,8 @@
 // =============================
 // Cấu trúc lưu trạng thái cho từng nút
 // =============================
-static GPIO_TypeDef* buttonPorts[MAX_BUTTONS] = {GPIOC, GPIOC, GPIOC};
-static uint16_t buttonPins[MAX_BUTTONS]       = {BUTTON1_Pin, BUTTON2_Pin, BUTTON3_Pin};
+static GPIO_TypeDef* buttonPorts[MAX_BUTTONS] = {BUTTON1_GPIO_Port, BUTTON2_GPIO_Port, BUTTON3_GPIO_Port, BUTTON4_GPIO_Port};
+static uint16_t buttonPins[MAX_BUTTONS]       = {BUTTON1_Pin, BUTTON2_Pin, BUTTON3_Pin, BUTTON4_Pin};
 
 // Bộ nhớ trạng thái cho debounce
 static int KeyReg0[MAX_BUTTONS];
