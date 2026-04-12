@@ -4,7 +4,8 @@
  *  Created on: Nov 17, 2025
  *      Author: ngoqu
  */
-#include <gpio.h>
+#include "GPIO.h"
+#include "main.h"
 
 void LED_PA5_toggle(){
 	HAL_GPIO_TogglePin(GPIOA, LED_BLINK_Pin);

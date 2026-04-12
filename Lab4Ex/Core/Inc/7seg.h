@@ -10,6 +10,7 @@
 
 #define NUM_OF_7SEG_LED  4
 
+#include "main.h"
 #include "global.h"
 #include "traffic_light.h"
 
