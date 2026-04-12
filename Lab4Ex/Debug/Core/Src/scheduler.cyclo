@@ -1,0 +1,6 @@
+../Core/Src/scheduler.c:22:6:SCH_Init	2
+../Core/Src/scheduler.c:35:6:SCH_TimerCallback	5
+../Core/Src/scheduler.c:49:10:SCH_Add_Task	5
+../Core/Src/scheduler.c:90:9:SCH_Delete_Task	6
+../Core/Src/scheduler.c:120:6:SCH_Dispatch_Tasks	3
+../Core/Src/scheduler.c:135:17:Get_New_Task_ID	2

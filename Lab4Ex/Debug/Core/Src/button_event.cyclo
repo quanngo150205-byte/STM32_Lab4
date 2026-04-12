@@ -1,0 +1,4 @@
+../Core/Src/button_event.c:14:6:button_event_scan	1
+../Core/Src/button_event.c:25:6:getModeFlag	2
+../Core/Src/button_event.c:31:6:getConfigFlag	5
+../Core/Src/button_event.c:41:6:getManualFlag	7

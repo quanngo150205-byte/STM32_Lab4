@@ -1,7 +1,7 @@
-traffic_light.c:11:6:YellowToRed1	8	static
-traffic_light.c:17:6:RedToGreen1	8	static
-traffic_light.c:23:6:GreenToYellow1	8	static
-traffic_light.c:31:6:YellowToRed2	8	static
-traffic_light.c:37:6:RedToGreen2	8	static
-traffic_light.c:43:6:GreenToYellow2	8	static
-traffic_light.c:51:6:clearAllLed	8	static
+../Core/Src/traffic_light.c:11:6:YellowToRed1	8	static
+../Core/Src/traffic_light.c:17:6:RedToGreen1	8	static
+../Core/Src/traffic_light.c:23:6:GreenToYellow1	8	static
+../Core/Src/traffic_light.c:31:6:YellowToRed2	8	static
+../Core/Src/traffic_light.c:37:6:RedToGreen2	8	static
+../Core/Src/traffic_light.c:43:6:GreenToYellow2	8	static
+../Core/Src/traffic_light.c:51:6:clearAllLed	8	static
