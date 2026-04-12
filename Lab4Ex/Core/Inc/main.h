@@ -28,6 +28,9 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+//#ifndef STM32F103x6
+//#define STM32F103x6
+//#endif
 #include "stm32f1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/

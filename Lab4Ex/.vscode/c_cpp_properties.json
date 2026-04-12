@@ -9,6 +9,7 @@
                 "${workspaceFolder}/Drivers/CMSIS/Include",
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST",
                 "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+                "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
                 "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Src",
                 "${workspaceFolder}/Debug",
                 "${workspaceFolder}/**"
@@ -36,6 +37,7 @@
             "${workspaceFolder}/Drivers/CMSIS/Include",
             "${workspaceFolder}/Drivers/CMSIS/Device/ST",
             "${workspaceFolder}/Drivers/CMSIS/Device/ST/STM32F1xx/Include",
+            "${workspaceFolder}/Drivers/STM32F1xx_HAL_Driver/Inc/Legacy",
             "${workspaceFolder}/Debug",
             "${workspaceFolder}/**"
         ],
