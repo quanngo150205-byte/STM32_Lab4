@@ -13,6 +13,10 @@
 #include "fsm_manual.h"
 #include "crossroad.h"
 #include "button_event.h"
+#include "scheduler.h"
+#include "software_timer.h"
+#include "i2c_lcd.h"
+
 
 void BlinkLed();
 void fsm_run_all();

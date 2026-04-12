@@ -28,9 +28,6 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-//#ifndef STM32F103x6
-//#define STM32F103x6
-//#endif
 #include "stm32f1xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -111,16 +108,16 @@ void Error_Handler(void);
 #define LED_Y_D_GPIO_Port GPIOA
 #define LED_G_D_Pin GPIO_PIN_13
 #define LED_G_D_GPIO_Port GPIOA
+#define A1_Pin GPIO_PIN_14
+#define A1_GPIO_Port GPIOA
+#define G_Pin GPIO_PIN_15
+#define G_GPIO_Port GPIOA
 #define D_Pin GPIO_PIN_3
 #define D_GPIO_Port GPIOB
 #define E_Pin GPIO_PIN_4
 #define E_GPIO_Port GPIOB
 #define F_Pin GPIO_PIN_5
 #define F_GPIO_Port GPIOB
-#define G_Pin GPIO_PIN_6
-#define G_GPIO_Port GPIOB
-#define A1_Pin GPIO_PIN_7
-#define A1_GPIO_Port GPIOB
 #define B1_Pin GPIO_PIN_8
 #define B1_GPIO_Port GPIOB
 #define C1_Pin GPIO_PIN_9

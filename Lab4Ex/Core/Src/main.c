@@ -19,11 +19,10 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "Task.h"
-#include "scheduler.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "Task.h"
 
 /* USER CODE END Includes */
 
@@ -42,6 +41,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 TIM_HandleTypeDef htim2;
 
 /* USER CODE BEGIN PV */
@@ -52,6 +53,7 @@ TIM_HandleTypeDef htim2;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -90,17 +92,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_TIM2_Init();
-
-  doInit();
-
-  SCH_Init();
-
-  SCH_Add_Task(timer_run, 0, 1);
-  SCH_Add_Task(getKeyInput, 0, 1);
-  SCH_Add_Task(button_event_scan, 0, 1);
-  SCH_Add_Task(BlinkLed, 1, 10);
-  SCH_Add_Task(fsm_run_all, 1, 1);
-
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
@@ -110,7 +102,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  SCH_Dispatch_Tasks();
+
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -149,6 +141,40 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
 }
 
 /**
@@ -214,13 +240,13 @@ static void MX_GPIO_Init(void)
   HAL_GPIO_WritePin(GPIOA, LED_R_A_Pin|LED_Y_A_Pin|LED_G_A_Pin|LED_R_B_Pin
                           |LED_BLINK_Pin|LED_Y_B_Pin|LED_G_B_Pin|LED_R_C_Pin
                           |LED_Y_C_Pin|LED_G_C_Pin|LED_R_D_Pin|LED_Y_D_Pin
-                          |LED_G_D_Pin, GPIO_PIN_RESET);
+                          |LED_G_D_Pin|A1_Pin|G_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, A_Pin|B_Pin|C_Pin|D1_Pin
                           |E1_Pin|F1_Pin|G1_Pin|EN0_Pin
                           |EN1_Pin|D_Pin|E_Pin|F_Pin
-                          |G_Pin|A1_Pin|B1_Pin|C1_Pin, GPIO_PIN_RESET);
+                          |B1_Pin|C1_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : BUTTON1_Pin BUTTON2_Pin BUTTON3_Pin */
   GPIO_InitStruct.Pin = BUTTON1_Pin|BUTTON2_Pin|BUTTON3_Pin;
@@ -231,11 +257,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : LED_R_A_Pin LED_Y_A_Pin LED_G_A_Pin LED_R_B_Pin
                            LED_BLINK_Pin LED_Y_B_Pin LED_G_B_Pin LED_R_C_Pin
                            LED_Y_C_Pin LED_G_C_Pin LED_R_D_Pin LED_Y_D_Pin
-                           LED_G_D_Pin */
+                           LED_G_D_Pin A1_Pin G_Pin */
   GPIO_InitStruct.Pin = LED_R_A_Pin|LED_Y_A_Pin|LED_G_A_Pin|LED_R_B_Pin
                           |LED_BLINK_Pin|LED_Y_B_Pin|LED_G_B_Pin|LED_R_C_Pin
                           |LED_Y_C_Pin|LED_G_C_Pin|LED_R_D_Pin|LED_Y_D_Pin
-                          |LED_G_D_Pin;
+                          |LED_G_D_Pin|A1_Pin|G_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -244,11 +270,11 @@ static void MX_GPIO_Init(void)
   /*Configure GPIO pins : A_Pin B_Pin C_Pin D1_Pin
                            E1_Pin F1_Pin G1_Pin EN0_Pin
                            EN1_Pin D_Pin E_Pin F_Pin
-                           G_Pin A1_Pin B1_Pin C1_Pin */
+                           B1_Pin C1_Pin */
   GPIO_InitStruct.Pin = A_Pin|B_Pin|C_Pin|D1_Pin
                           |E1_Pin|F1_Pin|G1_Pin|EN0_Pin
                           |EN1_Pin|D_Pin|E_Pin|F_Pin
-                          |G_Pin|A1_Pin|B1_Pin|C1_Pin;
+                          |B1_Pin|C1_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
