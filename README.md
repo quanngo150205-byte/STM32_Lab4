@@ -1,4 +1,4 @@
-# STM32 Lab 4 – Hệ thống đèn giao thông thông minh (STM32F103C6)
+# STM32 Lab 4 – Hệ thống đèn giao thông nhiều chế độ (STM32F103C6)
 
 ## 1) Giới thiệu project
 
