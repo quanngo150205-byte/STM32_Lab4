@@ -203,4 +203,3 @@ STM32_Lab4/
   - `PERIOD_LCD_UPDATE`
   - `PERIOD_UPDATE_TIME_BUFFER`
 
-Chúc bạn triển khai và mở rộng project thuận lợi 🚦
