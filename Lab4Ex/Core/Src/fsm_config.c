@@ -125,6 +125,11 @@ void fsm_config_run(){
                 green_temp++;
             }
         }
+        if (isButtonLongPressed(2) || isButtonPressed(2)){
+            if (green_temp > 1){
+                green_temp--;
+            }
+        }
 		if (flagcontrolConfig){
 		    status 		= RED_GREEN;
 		    RedTime 	= red_temp * 1000;

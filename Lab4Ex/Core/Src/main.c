@@ -94,6 +94,10 @@ int main(void)
   MX_TIM2_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+  doInit();
+  SCH_Init();
+  SCH_Add_Task(fsm_run_all, 0, 1);
+  SCH_Add_Task(BlinkLed, 0, 1);
   HAL_TIM_Base_Start_IT(&htim2);
   /* USER CODE END 2 */
 
@@ -104,6 +108,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
+	  SCH_Dispatch_Tasks();
   }
   /* USER CODE END 3 */
 }
@@ -296,8 +301,8 @@ static void MX_GPIO_Init(void)
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	SCH_TimerCallback();
 	timer_run();
-	button_event_scan();
-	getKeyInput();
+	getKeyInput();        
+	button_event_scan(); 
 }
 /* USER CODE END 4 */
 

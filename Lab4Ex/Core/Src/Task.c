@@ -28,4 +28,11 @@ void doInit(){
 	clearAllLed();
 	button_init();
 	display_lcd_init();
+
+	/* Khoi tao gia tri mac dinh cho che do Config (don vi: giay) */
+	red_temp   = DEFAULT_REDTIME   / 1000;
+	amber_temp = DEFAULT_AMBERTIME / 1000;
+	green_temp = DEFAULT_GREENTIME / 1000;
+
+	flagchangeMode = 1; /* Tu dong chuyen sang RED_GREEN khi bat nguon */
 }
